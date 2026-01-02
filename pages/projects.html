@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Vile</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #090909;
+      --text: #e6e6e6;
+      --muted: #9a9a9a;
+      --red-glow: rgba(122, 13, 13, 0.55);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #fff;
+      text-shadow: 0 0 6px var(--red-glow),0 0 14px var(--red-glow),0 0 28px rgba(122,13,13,0.55),0 0 48px rgba(122,13,13,0.35);
+    }
+
+    nav { display: flex; gap: 1.75rem; font-size: 0.9rem; }
+    nav a { color: var(--muted); text-decoration: none; position: relative; transition: color 0.2s ease, text-shadow 0.2s ease; }
+    nav a:hover { color: #fff; text-shadow: 0 0 6px var(--red-glow),0 0 12px var(--red-glow),0 0 20px rgba(122,13,13,0.75); }
+    nav a::after { content: ""; position: absolute; left: 0; bottom: -6px; width: 0; height: 1px; background: #7a0d0d; box-shadow: 0 0 6px var(--red-glow),0 0 14px rgba(122,13,13,0.8); transition: width 0.25s ease; }
+    nav a:hover::after { width: 100%; }
+
+    main { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+    h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 2rem; }
+
+    .project {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      align-items: flex-start;
+    }
+
+    .project img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 0 25px rgba(122,13,13,0.5), 0 0 50px rgba(122,13,13,0.25);
+    }
+
+    .project-details h2 { margin-bottom: 0.5rem; font-size: 1.5rem; }
+    .project-details p { margin-bottom: 0.25rem; color: var(--muted); line-height: 1.5; }
+  </style>
+</head>
+<body>
+
+<header>
+  <strong class="brand">🟈Vile🟈</strong>
+  <nav>
+    <a href="../index">Home</a>
+    <a href="networks">Networks</a>
+    <a href="skills">Skills</a>
+    <a href="contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Projects</h1>
+
+  <!-- Project 1 -->
+  <div class="project">
+    <img src="../assets/images/project1.png" alt="Project One" />
+     <img src="../assets/images/project3.png" alt="Project Name" />
+    <div class="project-details">
+      <h2>Project Name</h2>
+      <p><strong>Date:</strong> Project Date</p>
+      <p><strong>Description:</strong> Project Description</p>
+    </div>
+  </div>
+
+  <!-- Project 2 -->
+  <div class="project">
+    <img src="../assets/images/project2.png" alt="Project Two" />
+     <img src="../assets/images/project3.png" alt="Project Name" />
+    <div class="project-details">
+      <h2>Project Name</h2>
+      <p><strong>Date:</strong> Project Date</p>
+      <p><strong>Description:</strong> Project Description</p>
+  </div>
+
+  <!-- Project 3 -->
+  <div class="project">
+    <img src="../assets/images/project3.png" alt="Project Name" />
+    <div class="project-details">
+      <h2>Project Name</h2>
+      <p><strong>Date:</strong> Project Date</p>
+      <p><strong>Description:</strong> Project Description</p>
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>
