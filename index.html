@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vile | Home</title>
-
   <meta name="description" content="Vile — personal portfolio of networks, projects, and skills." />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -25,31 +24,34 @@
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
+      line-height: 1.6;
     }
 
     header {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 2.5rem 2rem;
+      padding: 2rem 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      position: relative;
     }
 
-    /* Brand */
     .brand {
       font-weight: 700;
       letter-spacing: 0.08em;
       color: #fff;
-      text-shadow:
-        0 0 6px var(--red-glow),
-        0 0 14px var(--red-glow);
+      text-shadow: 0 0 6px var(--red-glow), 0 0 14px var(--red-glow);
+      font-size: 1.4rem;
     }
 
     nav {
       display: flex;
-      gap: 1.75rem;
+      gap: 1.5rem;
       font-size: 0.9rem;
+      flex-wrap: wrap;
+      transition: max-height 0.3s ease;
     }
 
     nav a {
@@ -61,23 +63,18 @@
 
     nav a:hover {
       color: #fff;
-      text-shadow:
-        0 0 6px var(--red-glow),
-        0 0 12px var(--red-glow),
-        0 0 20px rgba(122, 13, 13, 0.75);
+      text-shadow: 0 0 6px var(--red-glow), 0 0 12px var(--red-glow), 0 0 20px rgba(122, 13, 13, 0.75);
     }
 
     nav a::after {
       content: "";
       position: absolute;
       left: 0;
-      bottom: -6px;
+      bottom: -4px;
       width: 0;
       height: 1px;
       background: var(--red);
-      box-shadow:
-        0 0 6px var(--red-glow),
-        0 0 14px rgba(122, 13, 13, 0.8);
+      box-shadow: 0 0 6px var(--red-glow), 0 0 14px rgba(122, 13, 13, 0.8);
       transition: width 0.25s ease;
     }
 
@@ -85,40 +82,119 @@
       width: 100%;
     }
 
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 20px;
+      height: 14px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(3px, 3px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(3px, -3px);
+    }
+
     main {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 6rem 2rem 0;
+      padding: 4rem 1.5rem 2rem;
+    }
+
+    .profile-section {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .profile-img {
+      width: 100%;
+      max-width: 220px;
+      border-radius: 50%;
+      justify-self: center;
+      box-shadow: 0 0 20px rgba(122, 13, 13, 0.45), 0 0 40px rgba(122, 13, 13, 0.25);
     }
 
     h1 {
-      font-size: 2.4rem;
+      font-size: 2rem;
       font-weight: 700;
       letter-spacing: -0.02em;
+      margin-bottom: 1rem;
     }
 
     p {
-      margin-top: 1.25rem;
-      max-width: 720px;
+      margin-bottom: 1rem;
       color: var(--muted);
-      line-height: 1.7;
-    }
-
-    /* Profile image */
-    .profile-img {
-      width: 100%;
-      max-width: 260px;
-      border-radius: 50%;
-      box-shadow:
-        0 0 20px rgba(122, 13, 13, 0.45),
-        0 0 40px rgba(122, 13, 13, 0.25);
+      line-height: 1.6;
     }
 
     footer {
-      padding: 4rem 2rem 3rem;
+      padding: 3rem 1rem 2rem;
       text-align: center;
       font-size: 0.75rem;
       color: var(--muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .profile-section {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      h1 { font-size: 1.8rem; }
+
+      nav {
+        flex-direction: column;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        background: var(--bg);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        gap: 0;
+      }
+
+      nav a {
+        padding: 1rem 0;
+        border-top: 1px solid rgba(255,255,255,0.05);
+      }
+
+      nav.show {
+        max-height: 500px; /* large enough for all links */
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header { padding: 1.5rem 1rem; }
+      .brand { font-size: 1.2rem; }
+      h1 { font-size: 1.6rem; }
+      p { font-size: 0.9rem; }
     }
   </style>
 </head>
@@ -126,7 +202,12 @@
 
 <header>
   <strong class="brand">🟈Vile🟈</strong>
-  <nav>
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav id="nav-menu">
     <a href="pages/networks">Networks</a>
     <a href="pages/projects">Projects</a>
     <a href="pages/skills">Skills</a>
@@ -135,17 +216,13 @@
 </header>
 
 <main>
-  <div style="display:grid;grid-template-columns:280px 1fr;gap:3rem;align-items:center;">
-    <img
-      src="assets/images/vilepfp26.png"
-      alt="Vile"
-      class="profile-img"
-    />
+  <div class="profile-section">
+    <img src="assets/images/vilepfp26.png" alt="Vile" class="profile-img" />
     <div>
       <h1>Vile</h1>
       <p>
         My main focus is on building and contributing to networks, projects, and infrastructure
-        with an emphasis on security, reliability, with a clean & aesthetic execution.
+        with an emphasis on security, reliability, and clean & aesthetic execution.
       </p>
       <p>
         This site serves as a record of the work I’ve been involved in — past networks,
@@ -154,5 +231,17 @@
     </div>
   </div>
 </main>
+
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+    hamburger.classList.toggle('active');  // animate hamburger into X
+  });
+</script>
+
 </body>
 </html>
