@@ -1,105 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🟈 SSH.Vile 🟈</title>
-    <link rel="icon" type="image/png" href="assets/images/favicon.ico">
-    <link rel="stylesheet" href="assets/CSS/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vile | Home</title>
+
+  <meta name="description" content="Vile — personal portfolio of networks, projects, and skills." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #090909;
+      --text: #e6e6e6;
+      --muted: #9a9a9a;
+      --red: #7a0d0d;
+      --red-glow: rgba(122, 13, 13, 0.55);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header strong {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.2s ease, text-shadow 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #fff;
+      text-shadow:
+        0 0 6px var(--red-glow),
+        0 0 12px var(--red-glow);
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 1px;
+      background: var(--red);
+      box-shadow: 0 0 6px var(--red-glow);
+      transition: width 0.25s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 2rem 0;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin-top: 1.25rem;
+      max-width: 720px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    footer {
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+  </style>
 </head>
 <body>
 
-<!-- Header -->
-<div class="header">
-    <img src="assets/images/pfp.jpg" alt="Vile's Avatar">
-    <h1>Vile</h1>
-</div>
+<header>
+  <strong>Vile</strong>
+  <nav>
+    <a href="pages/networks">Networks</a>
+    <a href="pages/projects">Projects</a>
+    <a href="pages/skills">Skills</a>
+    <a href="pages/contact">Contact</a>
+  </nav>
+</header>
 
-<!-- Navbar -->
-<div class="navbar">
-    <div class="nav-right">
-        <button class="tab active" onclick="showTab('test1')">Test1</button>
-        <button class="tab" onclick="showTab('test2')">Test2</button>
-
-        <div class="dropdown">
-            <button class="tab dropbtn">More</button>
-            <div class="dropdown-content">
-                <button class="tab" onclick="showTab('extra1')">Extra 1</button>
-                <button class="tab" onclick="showTab('extra2')">Extra 2</button>
-                <button class="tab" onclick="showTab('extra3')">Extra 3</button>
-            </div>
-        </div>
+<main>
+  <div style="display:grid;grid-template-columns:280px 1fr;gap:3rem;align-items:center;">
+    <img src="assets/images/vilepfp26.png" alt="Vile" style="width:100%;max-width:260px;border-radius:8px;box-shadow:0 0 25px rgba(122,13,13,0.35);" />
+    <div>
+      <h1>Vile</h1>
+      <p>
+        My main focus is on building and contributing to networks, projects, and infrastructure
+        with an emphasis on security, reliability, with a clean & aesthetic execution.
+      </p>
+      <p>
+        This site serves as a record of the work I’ve been involved in — past networks,
+        selected projects, and technical skills.
+      </p>
     </div>
-</div>
+  </div>
+</main>
 
-<!-- Tabs Content -->
-<div id="test1" class="content active">
-    <div class="text">
-        <h2>Welcome to Test1 👋</h2>
-        <p>This is your main profile section. Keep it dark, minimal, and sleek.</p>
-    </div>
-    <div class="image">
-        <img src="assets/images/side3.jpg" alt="Test1 Image">
-    </div>
-</div>
-
-<div id="test2" class="content">
-    <div class="text">
-        <h2>Welcome to Test2 ⚙️</h2>
-        <p>Showcase projects, concepts, or visual work here.</p>
-    </div>
-    <div class="image">
-        <img src="assets/images/side1.jpg" alt="Test2 Image">
-    </div>
-</div>
-
-<!-- Extra tabs linked from dropdown -->
-<div id="extra1" class="content">
-    <div class="text">
-        <h2>Extra Tab 1 ✨</h2>
-        <p>This tab is linked from the "More" dropdown button.</p>
-    </div>
-</div>
-
-<div id="extra2" class="content">
-    <div class="text">
-        <h2>Extra Tab 2 ⚡</h2>
-        <p>Another dropdown tab content example.</p>
-    </div>
-</div>
-
-<div id="extra3" class="content">
-    <div class="text">
-        <h2>Extra Tab 3 🔥</h2>
-        <p>Additional content for Extra 3 tab.</p>
-    </div>
-</div>
-
-<script>
-function showTab(tabId){
-    // remove active from all main tabs and dropdown buttons
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
-    // add active to clicked button and corresponding content
-    const btn = document.querySelector(`[onclick="showTab('${tabId}')"]`);
-    if(btn) btn.classList.add('active');
-    const content = document.getElementById(tabId);
-    if(content) content.classList.add('active');
-}
-
-// Dropdown toggle
-document.querySelectorAll('.dropbtn').forEach(btn => {
-    btn.addEventListener('click', function(e){
-        e.stopPropagation();
-        const content = this.nextElementSibling;
-        content.classList.toggle('show');
-    });
-});
-
-window.addEventListener('click', function(){
-    document.querySelectorAll('.dropdown-content').forEach(dc => dc.classList.remove('show'));
-});
-</script>
+<footer>
+  © <script>document.write(new Date().getFullYear())</script> SSH.Vile
+</footer>
 
 </body>
 </html>
