@@ -11,7 +11,7 @@
 
 <p align="center">
   <strong>Hello, I'm Vile, welcome to my profile!</strong><br>
- Full-stack developer & cybersec explorer. I love crafting clean, secure, and innovative web projects.
+Full-stack developer & cybersecurity explorer specializing in malware analysis I also like building clean, aesthetic random projects.
 </p>
 
 ---
@@ -19,7 +19,8 @@
 ## <img src="assets/images/profileicon.png" width="30" height="30" style="vertical-align:middle; margin-right:8px;"> About Me
 
 🟈 I’m currently working on **/Feds**  
-🟈 I’m an 18-year-old Full-stack developer & cybersecurity enthusiast <br>
+🟈 A female in a man's field & still knows more than them <br>
+🟈 I’m an 18 year old bersecurity enthusiast <br>
 🟈 View my work [here]()
 
 ---
