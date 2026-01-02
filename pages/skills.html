@@ -9,88 +9,213 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
   <style>
-    :root {
-      --bg: #090909;
-      --text: #e6e6e6;
-      --muted: #9a9a9a;
-      --red-glow: rgba(122, 13, 13, 0.55);
-    }
+:root {
+  --bg: #090909;
+  --text: #e6e6e6;
+  --muted: #9a9a9a;
+  --red: #7a0d0d;
+  --red-glow: rgba(122, 13, 13, 0.55);
+}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      font-family: Inter, system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-    }
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
 
-    header {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+header {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1100;
+}
 
-    .brand {
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: #fff;
-      text-shadow: 0 0 6px var(--red-glow),0 0 14px var(--red-glow),0 0 28px rgba(122,13,13,0.55),0 0 48px rgba(122,13,13,0.35);
-    }
+.brand {
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #fff;
+  text-shadow: 0 0 6px var(--red-glow),0 0 14px var(--red-glow),0 0 28px rgba(122,13,13,0.55),0 0 48px rgba(122,13,13,0.35);
+  font-size: 1.4rem;
+}
 
-    nav { display: flex; gap: 1.75rem; font-size: 0.9rem; }
-    nav a { color: var(--muted); text-decoration: none; position: relative; transition: color 0.2s ease, text-shadow 0.2s ease; }
-    nav a:hover { color: #fff; text-shadow: 0 0 6px var(--red-glow),0 0 12px var(--red-glow),0 0 20px rgba(122,13,13,0.75); }
-    nav a::after { content: ""; position: absolute; left: 0; bottom: -6px; width: 0; height: 1px; background: #7a0d0d; box-shadow: 0 0 6px var(--red-glow),0 0 14px rgba(122,13,13,0.8); transition: width 0.25s ease; }
-    nav a:hover::after { width: 100%; }
+nav {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
 
-    main { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
-    h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 3rem; }
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
 
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 2rem;
-    }
+nav a:hover {
+  color: #fff;
+  text-shadow: 0 0 6px var(--red-glow),0 0 12px var(--red-glow),0 0 20px rgba(122,13,13,0.75);
+}
 
-    .skill {
-      background: #0f0f0f;
-      border-radius: 12px;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background: var(--red);
+  box-shadow: 0 0 6px var(--red-glow),0 0 14px rgba(122,13,13,0.8);
+  transition: width 0.25s ease;
+}
 
-    .skill:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 15px var(--red-glow),0 0 25px rgba(122,13,13,0.35);
-    }
+nav a:hover::after {
+  width: 100%;
+}
 
-    .skill i {
-      font-size: 2.5rem;
-      color: #fff;
-      text-shadow: 0 0 6px var(--red-glow),0 0 14px var(--red-glow);
-    }
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20px;
+  height: 14px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 1200;
+}
 
-    .skill p {
-      font-size: 1rem;
-      color: var(--text);
-      text-align: center;
-    }
+.hamburger span {
+  display: block;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
 
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(3px, 3px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(3px, -3px);
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+}
+
+.skill {
+  background: #0f0f0f;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+.skill.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill:hover,
+.skill.touch-active {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--red-glow), 0 0 25px rgba(122,13,13,0.35);
+}
+
+.skill i {
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 0 0 6px var(--red-glow),0 0 14px var(--red-glow);
+}
+
+.skill p {
+  font-size: 1rem;
+  color: var(--text);
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    background: var(--bg);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    gap: 0;
+    z-index: 1500;
+    opacity: 0;
+  }
+
+  nav.show {
+    max-height: 500px;
+    opacity: 1;
+  }
+
+  nav a {
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  header { padding: 1.5rem 1rem; }
+  .brand { font-size: 1.2rem; }
+  h1 { font-size: 1.6rem; }
+}
   </style>
 </head>
 <body>
 
 <header>
   <strong class="brand">🟈Vile🟈</strong>
-  <nav>
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav id="nav-menu">
     <a href="../index">Home</a>
     <a href="networks">Networks</a>
     <a href="projects">Projects</a>
@@ -134,7 +259,38 @@
     </div>
 
   </div>
-
 </main>
+
+<script>
+  // Hamburger toggle
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+    hamburger.classList.toggle('active');
+  });
+
+  // Animate skill cards on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    const skills = document.querySelectorAll('.skill');
+    skills.forEach((skill, index) => {
+      setTimeout(() => {
+        skill.classList.add('show');
+      }, index * 150);
+    });
+
+    // Touch support for mobile "hover" glow effect
+    skills.forEach(skill => {
+      skill.addEventListener('touchstart', () => {
+        skill.classList.add('touch-active');
+      });
+      skill.addEventListener('touchend', () => {
+        setTimeout(() => skill.classList.remove('touch-active'), 500);
+      });
+    });
+  });
+</script>
+
 </body>
 </html>
