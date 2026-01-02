@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects | Vile</title>
+  <title>Skills | Vile</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
   <style>
     :root {
@@ -47,25 +48,42 @@
     nav a:hover::after { width: 100%; }
 
     main { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
-    h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 2rem; }
+    h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 3rem; }
 
-    .project {
-      display: flex;
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 2rem;
-      margin-bottom: 3rem;
-      align-items: flex-start;
     }
 
-    .project img {
-      width: 180px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 50%;
-      box-shadow: 0 0 25px rgba(122,13,13,0.5), 0 0 50px rgba(122,13,13,0.25);
+    .skill {
+      background: #0f0f0f;
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .project-details h2 { margin-bottom: 0.5rem; font-size: 1.5rem; }
-    .project-details p { margin-bottom: 0.25rem; color: var(--muted); line-height: 1.5; }
+    .skill:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px var(--red-glow),0 0 25px rgba(122,13,13,0.35);
+    }
+
+    .skill i {
+      font-size: 2.5rem;
+      color: #fff;
+      text-shadow: 0 0 6px var(--red-glow),0 0 14px var(--red-glow);
+    }
+
+    .skill p {
+      font-size: 1rem;
+      color: var(--text);
+      text-align: center;
+    }
+
   </style>
 </head>
 <body>
@@ -75,42 +93,46 @@
   <nav>
     <a href="../index">Home</a>
     <a href="networks">Networks</a>
-    <a href="skills">Skills</a>
+    <a href="projects">Projects</a>
     <a href="contact">Contact</a>
   </nav>
 </header>
 
 <main>
-  <h1>Projects</h1>
+  <h1>Skills</h1>
 
-  <!-- Project 1 -->
-  <div class="project">
-     <img src="../assets/images/project3.png" alt="Project Name" />
-    <div class="project-details">
-      <h2>Project Name</h2>
-      <p><strong>Date:</strong> Project Date</p>
-      <p><strong>Description:</strong> Project Description</p>
-    </div>
-  </div>
+  <div class="skills-grid">
 
-  <!-- Project 2 -->
-  <div class="project">
-    <img src="../assets/images/project2.png" alt="Project Name" />
-    <div class="project-details">
-      <h2>Project Name</h2>
-      <p><strong>Date:</strong> Project Date</p>
-      <p><strong>Description:</strong> Project Description</p>
-  </div>
+    <div class="skill">
+      <i class="fab fa-html5"></i>
+      <p>HTML5</p>
     </div>
 
-  <!-- Project 3 -->
-  <div class="project">
-    <img src="../assets/images/project3.png" alt="Project Name" />
-    <div class="project-details">
-      <h2>Project Name</h2>
-      <p><strong>Date:</strong> Project Date</p>
-      <p><strong>Description:</strong> Project Description</p>
+    <div class="skill">
+      <i class="fab fa-css3-alt"></i>
+      <p>CSS3</p>
     </div>
+
+    <div class="skill">
+      <i class="fab fa-js"></i>
+      <p>JavaScript</p>
+    </div>
+
+    <div class="skill">
+      <i class="fas fa-lock"></i>
+      <p>Cybersecurity</p>
+    </div>
+
+    <div class="skill">
+      <i class="fas fa-server"></i>
+      <p>Server Management</p>
+    </div>
+
+    <div class="skill">
+      <i class="fas fa-code"></i>
+      <p>Full-Stack Development</p>
+    </div>
+
   </div>
 
 </main>
