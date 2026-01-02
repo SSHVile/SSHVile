@@ -56,7 +56,16 @@
       align-items: flex-start;
     }
 
-    .network img {
+    /* Circular glow for first network */
+    .network:first-of-type img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 0 25px rgba(122,13,13,0.5), 0 0 50px rgba(122,13,13,0.25);
+    }
+
+    .network img:not(:first-of-type) {
       width: 180px;
       height: 180px;
       object-fit: cover;
@@ -90,7 +99,7 @@
       <h2>Saturn Network</h2>
       <p><strong>Date Active:</strong> Jan 2019 - Mar 2021</p>
       <p><strong>Role:</strong> Head of Operations and IP Management</p>
-      <p><strong>Description:</strong>Overseeing company operations while managing DMCA and copyright compliance to protect assets and ensure smooth workflow.</p>
+      <p><strong>Description:</strong> Overseeing company operations while managing DMCA and copyright compliance to protect assets and ensure smooth workflow.</p>
     </div>
   </div>
 
@@ -104,19 +113,6 @@
       <p><strong>Description:</strong> Built and managed VPN systems, focusing on secure, reliable, and high-performance connections.</p>
     </div>
   </div>
-
-  <!-- Network 3
-  <div class="network">
-    <img src="../assets/images/network3.png" alt="Network Three" />
-    <div class="network-details">
-      <h2>Network Three</h2>
-      <p><strong>Date Active:</strong> Jun 2019 - Present</p>
-      <p><strong>Role:</strong> Network Architect</p>
-      <p><strong>Description:</strong> Oversaw the overall network design, optimized infrastructure, and implemented security measures for ongoing projects.</p>
-    </div>
-  </div>
- -->
-</main>
 
 </body>
 </html>
