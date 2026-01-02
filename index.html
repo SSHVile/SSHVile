@@ -36,9 +36,14 @@
       align-items: center;
     }
 
-    header strong {
+    /* Brand */
+    .brand {
       font-weight: 700;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.08em;
+      color: #fff;
+      text-shadow:
+        0 0 6px var(--red-glow),
+        0 0 14px var(--red-glow);
     }
 
     nav {
@@ -58,7 +63,8 @@
       color: #fff;
       text-shadow:
         0 0 6px var(--red-glow),
-        0 0 12px var(--red-glow);
+        0 0 12px var(--red-glow),
+        0 0 20px rgba(122, 13, 13, 0.75);
     }
 
     nav a::after {
@@ -69,7 +75,9 @@
       width: 0;
       height: 1px;
       background: var(--red);
-      box-shadow: 0 0 6px var(--red-glow);
+      box-shadow:
+        0 0 6px var(--red-glow),
+        0 0 14px rgba(122, 13, 13, 0.8);
       transition: width 0.25s ease;
     }
 
@@ -96,6 +104,16 @@
       line-height: 1.7;
     }
 
+    /* Profile image */
+    .profile-img {
+      width: 100%;
+      max-width: 260px;
+      border-radius: 50%;
+      box-shadow:
+        0 0 20px rgba(122, 13, 13, 0.45),
+        0 0 40px rgba(122, 13, 13, 0.25);
+    }
+
     footer {
       padding: 4rem 2rem 3rem;
       text-align: center;
@@ -107,7 +125,7 @@
 <body>
 
 <header>
-  <strong> 🟈Vile 🟈</strong>
+  <strong class="brand">🟈Vile🟈</strong>
   <nav>
     <a href="pages/networks">Networks</a>
     <a href="pages/projects">Projects</a>
@@ -118,7 +136,11 @@
 
 <main>
   <div style="display:grid;grid-template-columns:280px 1fr;gap:3rem;align-items:center;">
-    <img src="assets/images/vilepfp26.png" alt="Vile" style="width:100%;max-width:260px;border-radius:8px;box-shadow:0 0 25px rgba(122,13,13,0.35);" />
+    <img
+      src="assets/images/vilepfp26.png"
+      alt="Vile"
+      class="profile-img"
+    />
     <div>
       <h1>Vile</h1>
       <p>
